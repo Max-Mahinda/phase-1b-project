@@ -1,39 +1,155 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Country & Public Holidays API</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <!-- Navbar -->
-    <navbar id="navbar">
-      <!-- Links -->
-      <a href="index.html">Country</a>
-      <a href="holiday.html">Holidays</a>
-      <a href="https://www.nationsonline.org/oneworld/country_code_list.htm" target="_blank">Country Codes</a>
-    </navbar>
-    <!-- Header -->
-    <header id="header">
-      <h1>Country Information</h1>
-      <h3>View the information of different countries</h3>
-    </header>
 
-    <!-- Main Section -->
-    <section id="main">
-      <h2>Search for Country</h2>
-      <!-- Input fields -->
-      <input id="searchCountry" type="text" placeholder="Country Code" />
-      <input id="getCountry" type="button" value="Search" />
-      <div id="resultBox"></div>
-    </section>
-    <!-- Footer -->
-    <footer id="footer">
-      <p>Joacim Strandvide - CountryAPI</p>
-    </footer>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/7abfb9006f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Birds-Cats-Shibas</title>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div>
+            <div class="navbar-left">
+                <a href="#">Home</a>
+                <a href="#random">Randomizer</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#game">Guessing Game</a>
+            </div>
+            <div class="navbar-middle">
+                <i class="fa-solid fa-crow"></i>
+                <i class="fa-solid fa-cat"></i>
+                <i class="fa-solid fa-dog"></i>
+            </div>
+            <div class="navbar-right">
+                <a href="https://shibe.online/">API</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Page Header -->
+    <h1>It's a Bird...It's a Cat...It's a Shiba?</h1>
+
+    <!-- Home -->
+    <div class="main">
+        <img class="image" id="main-bird" onclick="getRandomBird()"
+            src="https://cdn.shibe.online/birds/f1c1b02d0c1a70082fd21b9c8e7707e260cb5d65.jpg" alt="Bird">
+        <img class="image" id="main-cat" onclick="getRandomCat()"
+            src="https://cdn.shibe.online/cats/21991edc0730071ef46a216bfc10175a80b5923a.jpg" alt="Cat">
+        <img class="image" id="main-shiba" onclick="getRandomShiba()"
+            src="https://cdn.shibe.online/shibes/d88c960062806279fe69383b246ad2f9998eea63.jpg" alt="Shiba">
+        <p>Click me! &#8593;</p>
+        <p>Click me! &#8593;</p>
+        <p>Click me! &#8593;</p>
+    </div>
+
+    <!-- Home Info -->
+    <div class="info">
+        <p>This website uses the shiba inu API to generate random pictures of birds, cats, and of course, shiba inus.
+        </p>
+    </div>
+
+    <br id="random">
+    <br>
+    <br>
+
+    <!-- Randomizer -->
+    <div class="random">
+        <h2>Randomizer</h2>
+
+        <br>
+
+        <div class="random-flex">
+            <img class="image" id="random-animal" alt="Animal"
+                src="https://cdn.shibe.online/cats/6ca264d18e549a5ffc04e20b8fbd53f72ae6b69e.jpg">
+            <form id="random-form">
+                <button id="random-btn" onclick="getRandomAnimal()">
+                    <i class="fa-solid fa-crow"></i>
+                    <i class="fa-solid fa-cat"></i>
+                    <i class="fa-solid fa-dog"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <br id="gallery">
+    <br>
+    <br>
+
+    <!-- Gallery -->
+    <div class="gallery">
+        <h2>Generate Gallery by Animal</h2>
+        <form id="gallery-form">
+            <select id="gallery-input-animal">
+                <option value="birds">Bird</option>
+                <option value="cats">Cat</option>
+                <option value="shibes">Shiba</option>
+            </select>
+            <input id="gallery-input-number" type="text" placeholder="Number (max 6)">
+            <button id="gallery-btn" onclick="getAnimals()">Generate</button>
+        </form>
+        <div class="gallery-grid">
+            <img class="image" id="gallery-animal-1"
+                src="https://cdn.shibe.online/birds/330f57226546a46d52d370de2b7854c2c6abd9bf.jpg" alt="Animal">
+            <img class="image" id="gallery-animal-2"
+                src="https://cdn.shibe.online/birds/43884be1ac24d0913a7ddf674fb6057f2e9af38f.jpg" alt="Animal">
+            <img class="image" id="gallery-animal-3"
+                src="https://cdn.shibe.online/birds/18c18ec42fbe0f792da5b0787dcd31292e4e264c.jpg" alt="Animal">
+            <img class="image" id="gallery-animal-4"
+                src="https://cdn.shibe.online/birds/7ccf3b7497e2258d60bf7358453e72d8637d41ba.jpg" alt="Animal">
+            <img class="image" id="gallery-animal-5"
+                src="https://cdn.shibe.online/birds/084dbca5e3b3186cd5a1f975d63c5d9f03c51587.jpg" alt="Animal">
+            <img class="image" id="gallery-animal-6"
+                src="https://cdn.shibe.online/birds/d4e3f538b8304f24c4c905909885c20bae216e11.jpg" alt="Animal">
+        </div>
+    </div>
+
+    <!-- Game Info -->
+    <div class="info">
+        <p>Now that you've looked at tons of images, it's time to put your knowledge to the test! Try out the guessing
+            game below &#8595;
+        </p>
+    </div>
+
+    <!-- Guessing Game -->
+    <br id="game">
+    <br>
+    <br>
+
+    <div class="game">
+        <h2>Guessing Game</h2>
+        <div class="game-grid">
+            <button id="game-play-btn" onclick="getRandomGameAnimal()">Play!</button>
+            <form id="game-form">
+                <select id="game-input-animal">
+                    <option value="bird">Bird</option>
+                    <option value="cat">Cat</option>
+                    <option value="shiba">Shiba</option>
+                </select>
+                <button id="game-guess-btn" onclick="checkGameAnimal()">Guess</button>
+            </form>
+            <p id="streak">Current streak: 0</p>
+            <p id="best-streak">Highest streak: 0</p>
+            <img class="image" id="game-animal" alt="Animal"
+                src="https://cdn.shibe.online/shibes/ce91724d160b6a7947c4a812ebc445586a0d9055.jpg">
+        </div>
+    </div>
+
+    <br>
+    <br>
+
     <script src="script.js"></script>
-  </body>
+
+
+</body>
+
 </html>

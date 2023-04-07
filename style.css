@@ -1,121 +1,212 @@
-html {
-    background-color: #fbab7e;
-    background-image: linear-gradient(62deg, #fbab7e 0%, #f7ce68 100%);
-    scroll-behavior: smooth;
-    margin: 0;
-    overflow-x: hidden;
-    font-family: "Oswald", sans serifs;
+* {
+  margin: 0;
+}
+
+@media (max-width: 480px) {
+  .navbar-right {
+      display: none;
   }
-  
-  /* 2. navbar */
-  #navbar {
-    display: flex;
-    width: 100%;
-    margin: 0;
-    padding: 0.7rem;
-    background-color: black;
+
+  .navbar-left {
+      display: none;
   }
-  
-  #navbar a {
-    color: #fff;
-    text-decoration: none;
-    padding: 1rem;
+
+  h1 {
+      padding-top: 50px;
   }
-  
-  /* 3. header */
-  #header {
-    margin: 0;
+
+  .main p {
+      display: none;
   }
-  
-  #header h1,
-  h3 {
-    color: #000;
-    text-align: center;
-    padding: 1rem;
-    font-family: "Josefin Sans", sans-serif;
-  }
-  
-  /* 4. input elements
-  /* Style text input */
-  #searchCountry,
-  #holidayText {
-    margin-bottom: 4rem;
-    padding: 0.5rem;
-    outline: none;
-    background-color: #fff;
-    color: #000;
-    transition: 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-  }
-  
-  #searchCountry:focus,
-  #holidayText:focus {
-    outline: none;
-    padding: 0.5rem;
-    border-radius: 1rem;
-    border-color: #7a9cc6;
-  }
-  
-  #getCountry,
-  #getHoliday {
-    border-radius: 1rem;
-    padding: 0.5rem;
-  }
-  
-  /* 5. main */
-  #main {
-    margin: auto;
-    padding: 2rem;
-    text-align: center;
-  }
-  
-  #main h2 {
-    font-family: "Josefin Sans", sans-serif;
-  }
-  
-  #resultBox img {
-    max-width: 150px;
-    border: 1px solid #fff;
-  }
-  
-  #resultBox h3 {
-    padding: 2.5rem;
-    color: #fff;
-    font-family: "Josefin Sans", sans-serif;
-    background-color: #25282a;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  }
-  
-  #resultBox h2 {
-    font-family: "Josefin Sans", sans-serif;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    padding: 2rem;
-  }
-  
-  #resultBox strong {
-    color: rgb(255, 37, 37);
-  }
-  
-  #holidayBox {
-    display: grid;
-    gap: 20px;
-    grid-template-columns: auto auto auto auto;
-    grid-template-rows: auto auto auto auto;
-  }
-  
-  #holidayBox h3 {
-    background-color: #25282a;
-    border-radius: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    color: #fff;
-  }
-  
-  #holidayBox strong {
-    color: rgb(255, 37, 37);
-  }
-  
-  /* 6. footer */
-  #footer {
-    margin-top: 10rem;
-    text-align: center;
-  }
-  
+}
+
+nav {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgb(55, 55, 55);
+  color: rgb(250, 250, 250);
+  padding: 1.2%;
+}
+
+nav div {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-right {
+  margin-left: auto;
+  margin-right: 7%;
+}
+
+.navbar-middle {
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 14%;
+  font-size: 1.2em;
+}
+
+.navbar-middle i {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.navbar-left a {
+  margin-left: 40px;
+}
+
+nav div a {
+  color: rgb(250, 250, 250);
+  text-decoration: none;
+  font-size: 1.2em;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+nav div a:hover {
+  color: rgb(200, 200, 200);
+  text-decoration: none;
+}
+
+h1 {
+  margin-top: 6%;
+  text-align: center;
+  font-family: "Source Serif Pro", serif;
+}
+
+.main {
+  margin-top: 1%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.main img {
+  width: 90%;
+  height: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 3px solid black;
+}
+
+.main img:hover {
+  border: 5px solid red;
+  box-shadow: 10px 10px 5px grey;
+  cursor: pointer;
+}
+
+/* .main img:hover:before {
+  z-index: 2;
+  content: "Click me!";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-block;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 5px;
+} */
+
+.main p {
+  text-align: center;
+  position: relative;
+  bottom: 100%;
+  font-size: 1.2em;
+}
+
+.info p {
+  text-align: center;
+  font-family: "Source Serif Pro", serif;
+  font-size: 1.3em;
+}
+
+h2 {
+  text-align: center;
+  font-family: "Source Serif Pro", serif;
+}
+
+.random-flex {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1%;
+  display: flex;
+  width: 90%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.random-flex img {
+  width: 50%;
+  /* margin-left: auto;
+  margin-right: auto; */
+  border: 3px solid black;
+}
+
+#random-btn {
+  background-color: lightblue;
+  border-radius: 5px;
+  width: 100%;
+  height: 30%;
+  /* margin-left: auto;
+  margin-right: auto; */
+}
+
+#random-btn i {
+  font-size: 3em;
+  padding: 20%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.gallery {
+  text-align: center;
+  font-size: 1.2em;
+}
+
+#gallery-btn {
+  background-color: lightblue;
+}
+
+.gallery-grid {
+  margin-top: 1%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.gallery-grid img {
+  width: 90%;
+  height: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 3px solid black;
+}
+
+.game {
+  text-align: center;
+  font-size: 1.2em;
+}
+
+#game-play-btn {
+  background-color: lightblue;
+  border-radius: 5px;
+}
+
+#game-guess-btn {
+  background-color: lightblue;
+  border-radius: 5px;
+}
+
+#game-animal {
+  filter: blur(10px);
+  z-index: -1;
+  width: 50%;
+  border: 3px solid black;
+}
